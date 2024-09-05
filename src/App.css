@@ -1,0 +1,43 @@
+body {
+  color: #d8dae3;
+  background-position-y: -550px;
+  background-image: url('https://images.unsplash.com/photo-1501786223405-6d024d7c3b8d?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+}
+#root {
+  background: rgb(33, 36, 47);
+  background: linear-gradient(
+    90deg,
+    rgba(33, 36, 47, 1) 50%,
+    rgba(0, 0, 0, 0.7553396358543417) 100%,
+    rgba(0, 0, 0, 1) 100%,
+    rgba(0, 0, 0, 1) 100%
+  );
+  min-height: 100vh;
+  overflow: hidden;
+}
+
+nav {
+  background-color: transparent !important;
+  backdrop-filter: none !important;
+}
+
+.container-left {
+  color: #d8dae3;
+  display: flex;
+  align-items: center;
+  height: 90vh;
+  padding-left: 180px;
+}
+
+.input-wrapper-test-bank {
+  background-color: #323644 !important;
+}
+
+h1::after {
+  content: '.';
+  width: 10px;
+  height: 10px;
+  color: #006fee;
+  font-size: 50px;
+  margin-left: 5px;
+}
