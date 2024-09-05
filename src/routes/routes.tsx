@@ -6,6 +6,7 @@ import { Operations } from 'src/views/Operations';
 export const AppRouter = () => {
   return (
     <Routes>
+      <Route path='/' element={<Users />}></Route>
       <Route path='users' element={<Users />}></Route>
       <Route path='accounts' element={<Accounts />}>
         <Route path='user' element={<Accounts />}>
