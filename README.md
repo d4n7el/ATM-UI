@@ -1,4 +1,10 @@
-# Instalación React con Vite
+# CLONANDO PROYECTO
+
+- Despues de clonar el proyecto solo necesitas correr en la raiz del proyecto `npm i` y despues crear dos archivos llamados .env y .env.dev en la raiz del proyecto y asignar los valores que se encuentran en el archivo .env.reference.dev
+
+- Levanta le proyecto con `npm run dev`
+
+# CREAR PROYECTO con React y Vite DESDE CERO
 
 - Instalar globalmente nodejs con el manejador de versiones de su preferencia.
 
