@@ -9,10 +9,13 @@ import {
 
 const BASE_URL = import.meta.env.VITE_APP_BASE_URL;
 
-export const getOperations = async (): Promise<
+export const getOperations = async (
+  requestParams: Record<string, string | undefined>
+): Promise<
   AxiosResponse<OperationsDetail[], OperationsDetail[]> | undefined
 > => {
-  const url = `${BASE_URL}/operations`;
+  const requestParamsString = buildQueryString(requestParams);
+  const url = `${BASE_URL}/operations?${requestParamsString}`;
   const response = await getRequest(url);
   return response;
 };
@@ -39,4 +42,16 @@ export const postTransfer = async (
   const url = `${BASE_URL}/operation`;
   const response = await postRequest(url, data);
   return response;
+};
+
+const buildQueryString = (
+  params: Record<string, string | number | undefined>
+): string => {
+  return Object.entries(params)
+    .filter(([_, value]) => value !== undefined && value !== '')
+    .map(
+      ([key, value]) =>
+        `${encodeURIComponent(key)}=${encodeURIComponent(value ?? '')}`
+    )
+    .join('&');
 };

@@ -7,11 +7,27 @@ import {
   TableCell,
   Chip,
 } from '@nextui-org/react';
-import { useQueryOPerations } from '@hooks/useQueryOperations';
 import { colors, transactionTypes } from 'src/models/operations';
+import { useEffect } from 'react';
+import { FilterOperations } from '@components/FilterOperations';
+import useSearchOperations from '@hooks/useSearchOperations';
 
 export const ListOperations = () => {
-  const { isLoading, data } = useQueryOPerations();
+  const {
+    searchSourceAccount,
+    setSearchSourceAccount,
+    searchTransactionType,
+    setSearchTransactionType,
+    searchTargetAccount,
+    setSearchTargetAccount,
+    isLoading,
+    data,
+    refetch,
+  } = useSearchOperations();
+
+  useEffect(() => {
+    refetch();
+  }, [searchSourceAccount, searchTransactionType, searchTargetAccount]);
 
   const getColorChip = (transactionType: transactionTypes): colors => {
     if (transactionType === 'DEPOSIT') return 'success';
@@ -21,7 +37,7 @@ export const ListOperations = () => {
   };
 
   return (
-    <div className='container-left'>
+    <div className='container-left flex-wrap'>
       <section>
         <div>
           <h1 className='text-4xl font-bold mb-4'>List of transfers</h1>
@@ -29,11 +45,16 @@ export const ListOperations = () => {
             These are all the transactions
           </span>
         </div>
+        <FilterOperations
+          changeSourceAccountNum={(account) => setSearchSourceAccount(account)}
+          changeTargetAccountNum={(account) => setSearchTargetAccount(account)}
+          changeTransactionType={(type) => setSearchTransactionType(type)}
+        />
         <div className=' mt-10'>
           {!isLoading && (
             <Table
               aria-label='Example static collection table'
-              className='max-h-[590px]'
+              className='max-h-[590px] min-h-[590px]'
               isHeaderSticky={true}
             >
               <TableHeader>
@@ -49,8 +70,14 @@ export const ListOperations = () => {
               <TableBody>
                 {(data?.data || []).map((operation) => (
                   <TableRow key={operation.operationId}>
-                    <TableCell>{operation.sourceAccountName}</TableCell>
-                    <TableCell>{operation.targetAccountName}</TableCell>
+                    <TableCell>
+                      {operation.sourceAccountName} /{' '}
+                      {operation.sourceAccountNum}{' '}
+                    </TableCell>
+                    <TableCell>
+                      {operation.targetAccountName} /{' '}
+                      {operation.targetAccountNum}
+                    </TableCell>
                     <TableCell>{operation.createdAt.toString()}</TableCell>
                     <TableCell>
                       <Chip

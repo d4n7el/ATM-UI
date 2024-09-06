@@ -58,7 +58,7 @@ export const TransferFormModal = ({ sourceAccount }: Props) => {
         <Select
           label='Select target account'
           labelPlacement='outside'
-          placeholder='Select an animal'
+          placeholder='Select a transaction type'
           className='max-w-xs'
           onChange={(e) => {
             setTargetAccount(e.target.value);
