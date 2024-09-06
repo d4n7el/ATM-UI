@@ -30,7 +30,7 @@ export const WithdrawalFormModal = ({ sourceAccountId }: Props) => {
     <>
       <ModalHeader className='flex flex-col gap-1'>
         <h1 className='text-red-700'>Withdrawal</h1>
-        <span className=' text-sm text-gray-700'>
+        <span className=' text-sm'>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent
           ornare sem mi.
         </span>

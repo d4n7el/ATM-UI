@@ -30,7 +30,7 @@ export const ListUsers = ({ callback }: Props) => {
           <User
             onClick={() => navigate(`/accounts/user/${user.userId}`)}
             key={user.userId}
-            className='border-stone-700 border p-2 cursor-pointer'
+            className='border-stone-700 border p-2 pl-4 cursor-pointer w-[250px] justify-start'
             name={`${user.firstName} ${user.lastName} (${user.accountCount})`}
             description={user.email}
             avatarProps={{

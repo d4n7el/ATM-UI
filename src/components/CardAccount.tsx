@@ -31,7 +31,7 @@ export const CardAccount = ({ account, user, handleAccountChange }: Props) => {
 
   return (
     <>
-      <Card className='max-w-[540px]'>
+      <Card className='w-[240px]'>
         <CardHeader className='justify-between'>
           <div className='flex gap-5'>
             <Avatar
@@ -77,9 +77,9 @@ export const CardAccount = ({ account, user, handleAccountChange }: Props) => {
                   <DepositFormModal sourceAccountId={account.accountId} />
                 );
               }}
+              className='text-gray-300'
               size='sm'
               variant='light'
-              color='success'
               isIconOnly
               aria-label='Like'
             >
@@ -96,7 +96,7 @@ export const CardAccount = ({ account, user, handleAccountChange }: Props) => {
               size='sm'
               variant='light'
               isIconOnly
-              color='danger'
+              className='text-gray-300'
               aria-label='Take a photo'
             >
               <span className='icon-[majesticons--money-minus-line] size-5'></span>
@@ -110,7 +110,7 @@ export const CardAccount = ({ account, user, handleAccountChange }: Props) => {
               size='sm'
               variant='light'
               isIconOnly
-              color='warning'
+              className='text-gray-300'
               aria-label='Take a photo'
             >
               <span className='icon-[hugeicons--money-send-square] size-5'></span>
