@@ -11,6 +11,7 @@ import { colors, transactionTypes } from 'src/models/operations';
 import { useEffect } from 'react';
 import { FilterOperations } from '@components/FilterOperations';
 import useSearchOperations from '@hooks/useSearchOperations';
+import { format } from '@formkit/tempo';
 
 export const ListOperations = () => {
   const {
@@ -78,10 +79,12 @@ export const ListOperations = () => {
                       {operation.targetAccountName} /{' '}
                       {operation.targetAccountNum}
                     </TableCell>
-                    <TableCell>{operation.createdAt.toString()}</TableCell>
+                    <TableCell>
+                      {format(operation.createdAt.toString(), 'full')}
+                    </TableCell>
                     <TableCell>
                       <Chip
-                        className='capitalize'
+                        className='capitalize bg-balck border border-gray-400'
                         color={getColorChip(operation.transactionType)}
                         size='sm'
                         variant='flat'
