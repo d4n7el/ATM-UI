@@ -24,7 +24,7 @@ export const TransferFormModal = ({ sourceAccount }: Props) => {
       const data = {
         targetAccountId: targetAccount,
         sourceAccountId: sourceAccount.accountId,
-        createByUserId: 39,
+        createByUserId: 1,
         transactionType: 'TRANSFER',
         transactionAmount: amount,
       };

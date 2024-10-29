@@ -18,7 +18,7 @@ export const WithdrawalFormModal = ({ sourceAccountId }: Props) => {
     if (amount) {
       const data = {
         sourceAccountId: sourceAccountId,
-        createByUserId: 39,
+        createByUserId: 1,
         transactionType: 'WITHDRAWAL',
         transactionAmount: amount,
       };

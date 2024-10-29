@@ -18,7 +18,7 @@ export const DepositFormModal = ({ sourceAccountId }: Props) => {
     if (amount) {
       const data = {
         sourceAccountId: sourceAccountId,
-        createByUserId: 39,
+        createByUserId: 1,
         transactionType: 'DEPOSIT',
         transactionAmount: amount,
       };
